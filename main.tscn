@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cf15d3avd2g4f"]
 
 [ext_resource type="Texture2D" uid="uid://dccqvuixuysvm" path="res://Cards/2C.png" id="1_0xm2m"]
-[ext_resource type="Script" uid="uid://c7de7k7m3oa77" path="res://deck.gd" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://c7de7k7m3oa77" path="res://Inici.gd" id="2_h2yge"]
 
 [node name="Main" type="Node2D"]
 
