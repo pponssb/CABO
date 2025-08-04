@@ -1,33 +1,63 @@
-[gd_scene load_steps=3 format=3 uid="uid://cf15d3avd2g4f"]
+[gd_scene load_steps=4 format=3 uid="uid://cf15d3avd2g4f"]
 
 [ext_resource type="Texture2D" uid="uid://db4222k2gvj6f" path="res://Cards/CD.png" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://ckp2ipqufap4y" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="Script" uid="uid://c7de7k7m3oa77" path="res://Inici.gd" id="2_h2yge"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_h2yge")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="p1" type="Node2D" parent="."]
 
-[node name="CD1" type="Sprite2D" parent="p1"]
-position = Vector2(-50, -66.0001)
-scale = Vector2(0.133998, 0.136744)
-texture = ExtResource("1_0xm2m")
+[node name="C3" type="Button" parent="p1"]
+top_level = true
+offset_left = -124.0
+offset_top = 3.0
+offset_right = -4.0
+offset_bottom = 170.0
+icon = ExtResource("1_0xm2m")
+expand_icon = true
 
-[node name="CD2" type="Sprite2D" parent="p1"]
-position = Vector2(49, -64)
-scale = Vector2(0.131883, 0.131883)
-texture = ExtResource("1_0xm2m")
+[node name="C4" type="Button" parent="p1"]
+top_level = true
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 124.0
+offset_bottom = 170.0
+icon = ExtResource("1_0xm2m")
+expand_icon = true
 
-[node name="CD3" type="Sprite2D" parent="p1"]
-position = Vector2(-47, 64)
-scale = Vector2(0.125022, 0.126297)
-texture = ExtResource("1_0xm2m")
+[node name="C1" type="Button" parent="p1"]
+top_level = true
+offset_left = -124.0
+offset_top = -169.0
+offset_right = -4.0
+offset_bottom = -2.0
+icon = ExtResource("1_0xm2m")
+expand_icon = true
 
-[node name="CD4" type="Sprite2D" parent="p1"]
-position = Vector2(47, 63)
-scale = Vector2(0.124164, 0.124164)
-texture = ExtResource("1_0xm2m")
+[node name="C2" type="Button" parent="p1"]
+top_level = true
+offset_left = 4.0
+offset_top = -169.0
+offset_right = 124.0
+offset_bottom = -2.0
+icon = ExtResource("1_0xm2m")
+expand_icon = true
 
 [node name="Deck" type="Node2D" parent="."]
 script = ExtResource("2_h2yge")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -72.0
+offset_top = -240.0
+offset_right = 96.0
+offset_bottom = -176.0
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_left = -72.0
+offset_top = -312.0
+offset_right = 96.0
+offset_bottom = -249.0
