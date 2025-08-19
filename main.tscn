@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cf15d3avd2g4f"]
+[gd_scene load_steps=5 format=3 uid="uid://cf15d3avd2g4f"]
 
 [ext_resource type="Texture2D" uid="uid://db4222k2gvj6f" path="res://Cards/CD.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://ckp2ipqufap4y" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="Script" uid="uid://dvn0xan02s6vi" path="res://p_1.gd" id="2_1bvp3"]
 [ext_resource type="Script" uid="uid://c7de7k7m3oa77" path="res://Inici.gd" id="2_h2yge"]
 
 [node name="Main" type="Node2D"]
@@ -10,6 +11,7 @@ script = ExtResource("1_h2yge")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="p1" type="Node2D" parent="."]
+script = ExtResource("2_1bvp3")
 
 [node name="C3" type="Button" parent="p1"]
 top_level = true
@@ -47,17 +49,27 @@ offset_bottom = -2.0
 icon = ExtResource("1_0xm2m")
 expand_icon = true
 
+[node name="Label" type="Label" parent="p1"]
+offset_left = -120.0
+offset_top = -248.0
+offset_right = 128.0
+offset_bottom = -184.0
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="p1"]
+offset_left = -72.0
+offset_top = -272.0
+offset_right = 96.0
+offset_bottom = -209.0
+
+[node name="Pregunta" type="Label" parent="p1"]
+offset_left = -88.0
+offset_top = -312.0
+offset_right = 131.0
+offset_bottom = -248.0
+text = "Escriu el nom que utilitzaràs"
+
 [node name="Deck" type="Node2D" parent="."]
 script = ExtResource("2_h2yge")
 
-[node name="Label" type="Label" parent="."]
-offset_left = -72.0
-offset_top = -240.0
-offset_right = 96.0
-offset_bottom = -176.0
-
-[node name="LineEdit" type="LineEdit" parent="."]
-offset_left = -72.0
-offset_top = -312.0
-offset_right = 96.0
-offset_bottom = -249.0
+[connection signal="pressed" from="p1/C1" to="p1" method="_on_c_1_pressed"]

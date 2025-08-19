@@ -16,6 +16,3 @@ func deal_cards():
 func carta_nova():
 	var card = current_deck[randi()%current_deck.size()] # divideix un nombre random entre el nombre de cartes que hi ha a current_deck i agafa el residu
 	current_deck.erase(card)
-
-func _ready():
-	
