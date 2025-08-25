@@ -7,13 +7,23 @@ var current_deck = []
 
 @onready var p1 = $"../p1"
 @onready var p2 = $"../p2"
+@onready var C1 = $p1/C1
+@onready var p1_cards = []
+@onready var p2_cards = []
+@onready var p3_cards = []
 
-
-func deal_cards():
+func deal_cards(): #posa les 4 cartes a cada jugador
 	current_deck=full_deck.duplicate()
-	var p1_cards = [carta_nova(), carta_nova(), carta_nova(), carta_nova()]
-	var p2_cards = [carta_nova(), carta_nova(), carta_nova(), carta_nova()]
-	#posa les 4 cartes a cada jugador
+	for i in range (4):
+		p1_cards.append(carta_nova())
+		p2_cards.append(carta_nova())
+		p3_cards.append(carta_nova())
+	print (p1_cards)
+	
 func carta_nova():
 	var card = current_deck[randi()%current_deck.size()] # divideix un nombre random entre el nombre de cartes que hi ha a current_deck i agafa el residu
 	current_deck.erase(card)
+	return card
+func _ready():
+	deal_cards()
+	C1.card_value = p1_cards [0]

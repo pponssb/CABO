@@ -24,8 +24,3 @@ func girar_carta() -> void:
 	bot2.pressed.connect(Callable(self, "_on_boto_pressed").bind(bot2))
 	bot3.pressed.connect(Callable(self, "_on_boto_pressed").bind(bot3))
 	bot4.pressed.connect(Callable(self, "_on_boto_pressed").bind(bot4))
-
-
-func _on_boto_pressed(bot: Button) -> void:
-	var missatge = "Has premut: " + bot.name
-	print(missatge)            # surt a la consola
