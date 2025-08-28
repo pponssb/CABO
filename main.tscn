@@ -1,12 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://cf15d3avd2g4f"]
+[gd_scene load_steps=9 format=3 uid="uid://cf15d3avd2g4f"]
 
 [ext_resource type="Texture2D" uid="uid://db4222k2gvj6f" path="res://Cards/CD.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://ckp2ipqufap4y" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="Script" uid="uid://dvn0xan02s6vi" path="res://p_1.gd" id="2_1bvp3"]
 [ext_resource type="Script" uid="uid://c7de7k7m3oa77" path="res://Inici.gd" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://c7wnxwpylbdwu" path="res://c_3.gd" id="4_5vw27"]
+[ext_resource type="Script" uid="uid://dndcytxupvisf" path="res://c_4.gd" id="4_7mycd"]
 [ext_resource type="Script" uid="uid://cfs6qiobwj8vt" path="res://c_1.gd" id="4_lquwl"]
+[ext_resource type="Script" uid="uid://icsi1vgp8s5q" path="res://c_2.gd" id="7_kek77"]
 
 [node name="Main" type="Node2D"]
+position = Vector2(1, 0)
 script = ExtResource("1_h2yge")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -16,64 +20,136 @@ script = ExtResource("2_1bvp3")
 
 [node name="C3" type="Button" parent="p1"]
 top_level = true
-offset_left = -124.0
-offset_top = 3.0
-offset_right = -4.0
-offset_bottom = 170.0
+offset_left = 272.0
+offset_top = 131.0
+offset_right = 392.0
+offset_bottom = 298.0
 icon = ExtResource("1_0xm2m")
 expand_icon = true
+script = ExtResource("4_5vw27")
+metadata/_edit_use_anchors_ = true
 
 [node name="C4" type="Button" parent="p1"]
 top_level = true
-offset_left = 4.0
-offset_top = 3.0
-offset_right = 124.0
-offset_bottom = 170.0
+offset_left = 400.0
+offset_top = 131.0
+offset_right = 520.0
+offset_bottom = 298.0
 icon = ExtResource("1_0xm2m")
 expand_icon = true
+script = ExtResource("4_7mycd")
+metadata/_edit_use_anchors_ = true
 
 [node name="C1" type="Button" parent="p1"]
 top_level = true
-offset_left = -124.0
-offset_top = -169.0
-offset_right = -4.0
-offset_bottom = -2.0
+offset_left = 272.0
+offset_top = -41.0
+offset_right = 392.0
+offset_bottom = 126.0
 icon = ExtResource("1_0xm2m")
 expand_icon = true
 script = ExtResource("4_lquwl")
+metadata/_edit_use_anchors_ = true
 
 [node name="C2" type="Button" parent="p1"]
 top_level = true
-offset_left = 4.0
-offset_top = -169.0
-offset_right = 124.0
-offset_bottom = -2.0
+offset_left = 400.0
+offset_top = -41.0
+offset_right = 520.0
+offset_bottom = 126.0
 icon = ExtResource("1_0xm2m")
 expand_icon = true
+script = ExtResource("7_kek77")
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="p1"]
-offset_left = -120.0
-offset_top = -248.0
-offset_right = 128.0
-offset_bottom = -184.0
+offset_left = 276.0
+offset_top = -120.0
+offset_right = 524.0
+offset_bottom = -56.0
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="LineEdit" type="LineEdit" parent="p1"]
-offset_left = -72.0
-offset_top = -272.0
-offset_right = 96.0
-offset_bottom = -209.0
+offset_left = 324.0
+offset_top = -144.0
+offset_right = 492.0
+offset_bottom = -81.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Pregunta" type="Label" parent="p1"]
-offset_left = -88.0
-offset_top = -312.0
-offset_right = 131.0
-offset_bottom = -248.0
+offset_left = 308.0
+offset_top = -184.0
+offset_right = 527.0
+offset_bottom = -120.0
 text = "Escriu el nom que utilitzaràs"
+
+[node name="DESCARTS" type="Button" parent="p1"]
+top_level = true
+anchors_preset = -1
+anchor_left = -0.222222
+anchor_top = -0.121914
+anchor_right = -0.130208
+anchor_bottom = 0.106481
+offset_left = 99.0
+offset_top = 375.0
+offset_right = 219.0
+offset_bottom = 542.0
+rotation = -1.57079
+icon = ExtResource("1_0xm2m")
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="DESCARTS_txt" type="Label" parent="p1/DESCARTS"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0707965
+anchor_right = -0.0707965
+offset_left = 264.0
+offset_top = 84.9994
+offset_right = 406.0
+offset_bottom = 132.999
+rotation = 1.57079
+text = "PILA DE DESCARTS"
+metadata/_edit_use_anchors_ = true
+
+[node name="ROBAR" type="Button" parent="p1"]
+top_level = true
+anchors_preset = -1
+anchor_left = -0.222222
+anchor_top = -0.591049
+anchor_right = -0.130208
+anchor_bottom = -0.362654
+offset_left = 99.0
+offset_top = 375.0
+offset_right = 219.0
+offset_bottom = 542.0
+rotation = -1.57079
+icon = ExtResource("1_0xm2m")
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="ROBAR_txt" type="Label" parent="p1/ROBAR"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.82382
+anchor_top = -5.86826
+anchor_right = 1.82382
+anchor_bottom = -5.86826
+offset_left = -156.183
+offset_top = 1941.5
+offset_right = -14.1829
+offset_bottom = 1989.5
+rotation = 1.57079
+text = "PILA PER ROBAR"
+metadata/_edit_use_anchors_ = true
 
 [node name="Deck" type="Node2D" parent="."]
 script = ExtResource("2_h2yge")
 
-[connection signal="pressed" from="p1/C1" to="." method="_on_c_1_pressed"]
-[connection signal="pressed" from="p1/C1" to="p1" method="_on_c_1_pressed"]
+[connection signal="pressed" from="p1/C3" to="p1/C3" method="_on_pressed"]
+[connection signal="pressed" from="p1/C4" to="p1/C4" method="_on_pressed"]
 [connection signal="pressed" from="p1/C1" to="p1/C1" method="_on_pressed"]
+[connection signal="pressed" from="p1/C2" to="p1/C2" method="_on_pressed"]
+[connection signal="pressed" from="p1/DESCARTS" to="p1/DESCARTS" method="_on_pressed"]
+[connection signal="pressed" from="p1/ROBAR" to="p1/ROBAR" method="_on_pressed"]

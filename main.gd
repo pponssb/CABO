@@ -1,4 +1,7 @@
 extends Node2D
+var p1_cards = []
+var p2_cards = []
+var p3_cards = []
 var full_deck = ["1C", "2C", "3C", "4C", "5C", "6C", "7C", "8C", "9C", "10C", "JC", "QC", "KC",
 "1P", "2P", "3P", "4P", "5P", "6P", "7P", "8P", "9P", "10P", "JP", "QP", "KP",
 "1T", "2T", "3T", "4T", "5T", "6T", "7T", "8T", "9T", "10T", "JT", "QT", "KT",
@@ -8,9 +11,10 @@ var current_deck = []
 @onready var p1 = $"../p1"
 @onready var p2 = $"../p2"
 @onready var C1 = $p1/C1
-@onready var p1_cards = []
-@onready var p2_cards = []
-@onready var p3_cards = []
+@onready var C2 = $p1/C2
+@onready var C3 = $p1/C3
+@onready var C4 = $p1/C4
+
 
 func deal_cards(): #posa les 4 cartes a cada jugador
 	current_deck=full_deck.duplicate()
@@ -19,6 +23,7 @@ func deal_cards(): #posa les 4 cartes a cada jugador
 		p2_cards.append(carta_nova())
 		p3_cards.append(carta_nova())
 	print (p1_cards)
+	print (p2_cards)
 	
 func carta_nova():
 	var card = current_deck[randi()%current_deck.size()] # divideix un nombre random entre el nombre de cartes que hi ha a current_deck i agafa el residu
@@ -27,3 +32,6 @@ func carta_nova():
 func _ready():
 	deal_cards()
 	C1.card_value = p1_cards [0]
+	C2.card_value = p1_cards [1]
+	C3.card_value = p1_cards [2]
+	C4.card_value = p1_cards [3]

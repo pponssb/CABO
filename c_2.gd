@@ -13,7 +13,5 @@ func girar():
 
 
 
-
-
 func _on_pressed() -> void:
 	girar()
