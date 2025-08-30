@@ -16,6 +16,7 @@ var current_deck = []
 @onready var C4 = $p1/C4
 
 
+
 func deal_cards(): #posa les 4 cartes a cada jugador
 	current_deck=full_deck.duplicate()
 	for i in range (4):
@@ -26,7 +27,7 @@ func deal_cards(): #posa les 4 cartes a cada jugador
 	print (p2_cards)
 	
 func carta_nova():
-	var card = current_deck[randi()%current_deck.size()] # divideix un nombre random entre el nombre de cartes que hi ha a current_deck i agafa el residu
+	var card = current_deck[randi()%current_deck.size()] # divideix un nombre a l'atzar entre el nombre de cartes que hi ha a current_deck i agafa el residu
 	current_deck.erase(card)
 	return card
 func _ready():
