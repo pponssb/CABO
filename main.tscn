@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cf15d3avd2g4f"]
+[gd_scene load_steps=11 format=3 uid="uid://cf15d3avd2g4f"]
 
 [ext_resource type="Texture2D" uid="uid://db4222k2gvj6f" path="res://Cards/CD.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://ckp2ipqufap4y" path="res://main.gd" id="1_h2yge"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cfs6qiobwj8vt" path="res://c_1.gd" id="4_lquwl"]
 [ext_resource type="Script" uid="uid://icsi1vgp8s5q" path="res://c_2.gd" id="7_kek77"]
 [ext_resource type="Script" uid="uid://qaieejpd4vgt" path="res://robar.gd" id="8_kek77"]
+[ext_resource type="Script" uid="uid://bbcxv3ok1o1t3" path="res://botons_accions.gd" id="10_4c57u"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(1, 0)
@@ -165,10 +166,12 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="accions" type="BoxContainer" parent="."]
+visible = false
 offset_left = -545.0
 offset_top = 64.0
 offset_right = -209.0
 offset_bottom = 304.0
+script = ExtResource("10_4c57u")
 
 [node name="Descartar" type="Button" parent="accions"]
 layout_mode = 2
@@ -179,6 +182,7 @@ layout_mode = 2
 text = "Canviar carta"
 
 [node name="Accio" type="Button" parent="accions"]
+visible = false
 layout_mode = 2
 text = "Acció especial carta"
 
@@ -190,3 +194,7 @@ text = "Acció especial carta"
 [connection signal="pressed" from="p1/ROBAR" to="p1/ROBAR" method="_on_pressed"]
 [connection signal="pressed" from="CABO" to="." method="_on_cabo_pressed"]
 [connection signal="pressed" from="accions/Descartar" to="p1/ROBAR" method="_on_descartar_pressed"]
+[connection signal="pressed" from="accions/Descartar" to="accions" method="_on_descartar_pressed"]
+[connection signal="pressed" from="accions/Canviar_carta" to="p1/ROBAR" method="_on_canviar_carta_pressed"]
+[connection signal="pressed" from="accions/Accio" to="p1/ROBAR" method="_on_accio_pressed"]
+[connection signal="pressed" from="accions/Accio" to="accions" method="_on_accio_pressed"]

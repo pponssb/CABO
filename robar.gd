@@ -9,6 +9,7 @@ var current_deck = full_deck.duplicate()
 @onready var descartar_bt = $"../../accions/Descartar"
 @onready var Accio_bt = $"../../accions/Accio"
 @onready var canv_ct_bt = $"../../accions/Canviar_carta"
+var descarts =[]
 
 
 func carta_nova():
@@ -24,32 +25,26 @@ func carta_nova():
 
 func _on_pressed():
 	var carta_nova_resultat = carta_nova()
-
-	if not is_instance_valid($accions):
-		return
-
-	$accions.visible = true
+	accions_bt.visible = true
 
 	if carta_nova_resultat[0] == "7" or carta_nova_resultat[0] == "8":
 		Accio_bt.visible = true
-		if descartar_bt.is_pressed() or canv_ct_bt.is_pressed() or Accio_bt.is_pressed():
-			accions_bt.visible = false
-			Accio_bt.visible = true
 	elif carta_nova_resultat[0] == "9" or carta_nova_resultat[1] == "0":
 		Accio_bt.visible = true
-		if descartar_bt.is_pressed() or canv_ct_bt.is_pressed() or Accio_bt.is_pressed():
-			accions_bt.visible = false
-			Accio_bt.visible = true
 	elif carta_nova_resultat[0] == "J" or carta_nova_resultat[0] == "Q":
 		Accio_bt.visible = true
-		if descartar_bt.is_pressed() or canv_ct_bt.is_pressed() or Accio_bt.is_pressed():
-			accions_bt.visible = false
-			Accio_bt.visible = false
 	elif carta_nova_resultat[0] == "K":
 		Accio_bt.visible = true
-		if descartar_bt.is_pressed() or canv_ct_bt.is_pressed() or Accio_bt.is_pressed():
-			accions_bt.visible = false
-			Accio_bt.visible = false
 
 func _on_descartar_pressed() -> void:
-	pass # Replace with function body.
+	Accio_bt.visible = false
+	var descarts_bt = $"../DESCARTS"
+	descarts_bt.icon = dc.texture_normal
+	dc.texture_normal = $"res://Cards/CD.png"
+func _on_canviar_carta_pressed() -> void:
+	Accio_bt.visible = false
+	get_tree().change_scene_to_file("res://canviar_carta.tscn")
+	
+
+func _on_accio_pressed() -> void:
+	Accio_bt.visible = false

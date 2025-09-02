@@ -1,0 +1,112 @@
+[gd_scene load_steps=4 format=3 uid="uid://wnxwtrhh28me"]
+
+[ext_resource type="Texture2D" uid="uid://db4222k2gvj6f" path="res://Cards/CD.png" id="1_k3j2r"]
+
+[sub_resource type="Animation" id="Animation_lyk8f"]
+resource_name = "new_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3g10i"]
+_data = {
+&"new_animation": SubResource("Animation_lyk8f")
+}
+
+[node name="Canviar carta" type="Node2D"]
+
+[node name="C3" type="Button" parent="."]
+top_level = true
+anchors_preset = -1
+anchor_left = -0.0729167
+anchor_bottom = 0.180556
+offset_left = -124.0
+offset_top = 33.0
+offset_right = -4.0
+offset_bottom = 200.0
+icon = ExtResource("1_k3j2r")
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="C4" type="Button" parent="."]
+top_level = true
+anchors_preset = -1
+anchor_right = 0.0729167
+anchor_bottom = 0.180556
+offset_left = 4.0
+offset_top = 33.0
+offset_right = 124.0
+offset_bottom = 200.0
+icon = ExtResource("1_k3j2r")
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="C1" type="Button" parent="."]
+top_level = true
+anchors_preset = -1
+anchor_left = -0.0729167
+anchor_top = -0.180556
+offset_left = -124.0
+offset_top = -139.0
+offset_right = -4.0
+offset_bottom = 28.0
+icon = ExtResource("1_k3j2r")
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="C2" type="Button" parent="."]
+top_level = true
+anchors_preset = -1
+anchor_top = -0.180556
+anchor_right = 0.0729167
+offset_left = 4.0
+offset_top = -139.0
+offset_right = 124.0
+offset_bottom = 28.0
+icon = ExtResource("1_k3j2r")
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ct_agafada" type="Button" parent="."]
+top_level = true
+anchors_preset = -1
+anchor_left = -0.440972
+anchor_top = -0.223765
+anchor_right = -0.368056
+anchor_bottom = -0.0432099
+offset_left = 844.0
+offset_top = 33.0
+offset_right = 964.0
+offset_bottom = 200.0
+icon = ExtResource("1_k3j2r")
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.517145
+anchor_top = -1.17339
+anchor_right = 0.517145
+anchor_bottom = -1.17339
+offset_left = -248.0
+offset_top = -296.0
+offset_right = 255.0
+offset_bottom = -244.0
+theme_override_font_sizes/font_size = 21
+text = "Clica una carta per canviar-la per la carta agafada"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-432, 1.52588e-05)
+scale = Vector2(0.310134, 0.310134)
+texture = ExtResource("1_k3j2r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3g10i")
+}
+autoplay = "new_animation"
+
+[connection signal="pressed" from="C3" to="C3" method="_on_pressed"]
+[connection signal="pressed" from="C4" to="C4" method="_on_pressed"]
+[connection signal="pressed" from="C1" to="C1" method="_on_pressed"]
+[connection signal="pressed" from="C2" to="C2" method="_on_pressed"]
+[connection signal="pressed" from="ct_agafada" to="ct_agafada" method="_on_pressed"]
