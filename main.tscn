@@ -79,10 +79,10 @@ offset_bottom = -81.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Pregunta" type="Label" parent="p1"]
-offset_left = 631.0
-offset_top = -544.0
-offset_right = 850.0
-offset_bottom = -480.0
+offset_left = 295.0
+offset_top = -192.0
+offset_right = 514.0
+offset_bottom = -128.0
 text = "Escriu el nom que utilitzaràs"
 
 [node name="DESCARTS" type="Button" parent="p1"]
@@ -149,10 +149,10 @@ metadata/_edit_use_anchors_ = true
 script = ExtResource("2_h2yge")
 
 [node name="CABO" type="Button" parent="."]
-offset_left = -521.0
-offset_top = 192.0
-offset_right = -308.0
-offset_bottom = 309.0
+offset_left = 295.0
+offset_top = -312.0
+offset_right = 508.0
+offset_bottom = -195.0
 theme_override_font_sizes/font_size = 34
 text = "CABO"
 
@@ -161,6 +161,28 @@ offset_left = -131.0
 offset_top = -8.0
 offset_right = 133.0
 offset_bottom = 320.0
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="accions" type="BoxContainer" parent="."]
+visible = false
+offset_left = -545.0
+offset_top = 64.0
+offset_right = -209.0
+offset_bottom = 304.0
+
+[node name="Descartar" type="Button" parent="accions"]
+layout_mode = 2
+text = "Descartar carta"
+
+[node name="Canviar_carta" type="Button" parent="accions"]
+layout_mode = 2
+text = "Canviar carta"
+
+[node name="Accio" type="Button" parent="accions"]
+visible = false
+layout_mode = 2
+text = "Acció especial carta"
 
 [connection signal="pressed" from="p1/C3" to="p1/C3" method="_on_pressed"]
 [connection signal="pressed" from="p1/C4" to="p1/C4" method="_on_pressed"]
@@ -168,3 +190,4 @@ offset_bottom = 320.0
 [connection signal="pressed" from="p1/C2" to="p1/C2" method="_on_pressed"]
 [connection signal="pressed" from="p1/DESCARTS" to="p1/DESCARTS" method="_on_pressed"]
 [connection signal="pressed" from="p1/ROBAR" to="p1/ROBAR" method="_on_pressed"]
+[connection signal="pressed" from="CABO" to="." method="_on_cabo_pressed"]

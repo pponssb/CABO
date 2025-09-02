@@ -1,50 +1,31 @@
-extends Node2D
+extends Node
 var p1_cards = []
 var p2_cards = []
 var p3_cards = []
 var p4_cards = []
 var p5_cards = []
+@onready var num_jugadors = $"res://Botons_Jugadors.gd"
 var full_deck = ["1C", "2C", "3C", "4C", "5C", "6C", "7C", "8C", "9C", "10C", "JC", "QC", "KC",
 "1P", "2P", "3P", "4P", "5P", "6P", "7P", "8P", "9P", "10P", "JP", "QP", "KP",
 "1T", "2T", "3T", "4T", "5T", "6T", "7T", "8T", "9T", "10T", "JT", "QT", "KT",
 "1D", "2D", "3D", "4D", "5D", "6D", "7D", "8D", "9D", "10D", "JD", "QD", "KD"]
+
 var current_deck = []
-
-@onready var p1 = $"../p1"
-@onready var p2 = $"../p2"
-@onready var C1 = $p1/C1
-@onready var C2 = $p1/C2
-@onready var C3 = $p1/C3
-@onready var C4 = $p1/C4
-@onready var num_jugadors = $"res://Botons_Jugadors.gd"
-
-
 func deal_cards(): #posa les 4 cartes a cada jugador
 	current_deck=full_deck.duplicate()
 	for i in range (4):
 		p1_cards.append(carta_nova())
 		p2_cards.append(carta_nova())
 		p3_cards.append(carta_nova())
-		p4_cards.append(carta_nova())
-		p5_cards.append(carta_nova())
-	print (p1_cards)
-	print (p2_cards)
-	
+
 func carta_nova():
 	var card = current_deck[randi()%current_deck.size()] # divideix un nombre a l'atzar entre el nombre de cartes que hi ha a current_deck i agafa el residu
 	current_deck.erase(card)
 	return card
-func _ready():
-	deal_cards()
-	C1.card_value = p1_cards [0]
-	C2.card_value = p1_cards [1]
-	C3.card_value = p1_cards [2]
-	C4.card_value = p1_cards [3]
-	
+
 func readcard(carta,pos):
 	var r=carta[pos]
 	return r
-
 
 func recompte_punts():
 	var player_cards = [p1_cards, p2_cards, p3_cards, p4_cards, p5_cards]
@@ -59,18 +40,14 @@ func recompte_punts():
 				valor.append(11)
 			elif readcard(player_cards[j][i],0)=="K":
 				valor.append(0)
-			elif readcard(player_cards[j][i],0)=="L":
+			elif readcard(player_cards[j][i],0)=="r" or "b":
 				valor.append(-1)
-			elif readcard(player_cards[j][i],0)=="1":
-				if readcard(player_cards[j][i],1)=="0":
+			elif readcard(player_cards[j][i],0)==1:
+				if readcard(player_cards[j][i],1)==0:
 					valor.append(10)
 				else:
 					valor.append(1)
 			else:
 				valor.append(int(readcard(player_cards[j][i],0)))
-		var suma_jugador = valor[0] + valor[1] + valor[2] + valor[3]
-		suma.append(suma_jugador)
-	print (suma)
-
-func _on_cabo_pressed() -> void:
-	recompte_punts()
+		suma.append(valor[0]+valor[1]+valor[2]+valor[3])
+	return suma

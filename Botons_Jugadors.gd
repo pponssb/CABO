@@ -11,11 +11,13 @@ func _ready():
 		botons_container.add_child(boto)
 
 func seleccionar_jugadors(num):
+	Global.num_jugadors_seleccionats = num
 	njt.text = "El joc procedirà amb " + str(num) + " jugadors"
 	njt.show()
 	for boto in botons_container.get_children():
 		botons_container.remove_child(boto)
 		boto.queue_free()
-
+		
 func _on_button_pressed():
 	get_tree().change_scene_to_file("res://main.tscn")
+	

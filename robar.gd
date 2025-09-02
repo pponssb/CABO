@@ -10,8 +10,18 @@ func carta_nova():
 	current_deck.erase(card)
 	var carta_agafada = "res://Cards/" + card + ".png"
 	dc.texture_normal = load(carta_agafada)
-	print(card)
+	return card
 
 
-func _on_pressed() -> void:
+
+func _on_pressed():
 	carta_nova()
+
+	if carta_nova()[0] == "7" or carta_nova()[0] == "8":
+		$accions/Accio.visible = true
+	elif carta_nova()[0] == "9" or carta_nova()[0] == "1":
+		$accions/Accio.visible = true
+	elif carta_nova()[0] == "J" or carta_nova()[0] == "Q":
+		$accions/Accio.visible = true
+	elif carta_nova()[0] == "K":
+		$accions/Accio.visible = true

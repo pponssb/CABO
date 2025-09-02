@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://3nt1d7jyjbr8"
-path="res://.godot/imported/red_joker.png-51aaae590888d68a2500c213b97cbd9d.ctex"
+path="res://.godot/imported/L.png-99613a446f0fe1024db7c375d5c381d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cards/red_joker.png"
-dest_files=["res://.godot/imported/red_joker.png-51aaae590888d68a2500c213b97cbd9d.ctex"]
+source_file="res://Cards/L.png"
+dest_files=["res://.godot/imported/L.png-99613a446f0fe1024db7c375d5c381d1.ctex"]
 
 [params]
 
