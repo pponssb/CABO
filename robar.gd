@@ -5,23 +5,51 @@ var full_deck = ["1C", "2C", "3C", "4C", "5C", "6C", "7C", "8C", "9C", "10C", "J
 "1D", "2D", "3D", "4D", "5D", "6D", "7D", "8D", "9D", "10D", "JD", "QD", "KD"]
 var current_deck = full_deck.duplicate()
 @onready var dc = $"../../drawn_card"
+@onready var accions_bt = $"../../accions"
+@onready var descartar_bt = $"../../accions/Descartar"
+@onready var Accio_bt = $"../../accions/Accio"
+@onready var canv_ct_bt = $"../../accions/Canviar_carta"
+
+
 func carta_nova():
 	var card = current_deck[randi()%current_deck.size()] # divideix un nombre random entre el nombre de cartes que hi ha a current_deck i agafa el residu
 	current_deck.erase(card)
 	var carta_agafada = "res://Cards/" + card + ".png"
 	dc.texture_normal = load(carta_agafada)
+	print(card)
 	return card
+	
 
 
 
 func _on_pressed():
-	carta_nova()
+	var carta_nova_resultat = carta_nova()
 
-	if carta_nova()[0] == "7" or carta_nova()[0] == "8":
-		$accions/Accio.visible = true
-	elif carta_nova()[0] == "9" or carta_nova()[0] == "1":
-		$accions/Accio.visible = true
-	elif carta_nova()[0] == "J" or carta_nova()[0] == "Q":
-		$accions/Accio.visible = true
-	elif carta_nova()[0] == "K":
-		$accions/Accio.visible = true
+	if not is_instance_valid($accions):
+		return
+
+	$accions.visible = true
+
+	if carta_nova_resultat[0] == "7" or carta_nova_resultat[0] == "8":
+		Accio_bt.visible = true
+		if descartar_bt.is_pressed() or canv_ct_bt.is_pressed() or Accio_bt.is_pressed():
+			accions_bt.visible = false
+			Accio_bt.visible = true
+	elif carta_nova_resultat[0] == "9" or carta_nova_resultat[1] == "0":
+		Accio_bt.visible = true
+		if descartar_bt.is_pressed() or canv_ct_bt.is_pressed() or Accio_bt.is_pressed():
+			accions_bt.visible = false
+			Accio_bt.visible = true
+	elif carta_nova_resultat[0] == "J" or carta_nova_resultat[0] == "Q":
+		Accio_bt.visible = true
+		if descartar_bt.is_pressed() or canv_ct_bt.is_pressed() or Accio_bt.is_pressed():
+			accions_bt.visible = false
+			Accio_bt.visible = false
+	elif carta_nova_resultat[0] == "K":
+		Accio_bt.visible = true
+		if descartar_bt.is_pressed() or canv_ct_bt.is_pressed() or Accio_bt.is_pressed():
+			accions_bt.visible = false
+			Accio_bt.visible = false
+
+func _on_descartar_pressed() -> void:
+	pass # Replace with function body.

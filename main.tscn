@@ -165,7 +165,6 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="accions" type="BoxContainer" parent="."]
-visible = false
 offset_left = -545.0
 offset_top = 64.0
 offset_right = -209.0
@@ -180,7 +179,6 @@ layout_mode = 2
 text = "Canviar carta"
 
 [node name="Accio" type="Button" parent="accions"]
-visible = false
 layout_mode = 2
 text = "Acció especial carta"
 
@@ -191,3 +189,4 @@ text = "Acció especial carta"
 [connection signal="pressed" from="p1/DESCARTS" to="p1/DESCARTS" method="_on_pressed"]
 [connection signal="pressed" from="p1/ROBAR" to="p1/ROBAR" method="_on_pressed"]
 [connection signal="pressed" from="CABO" to="." method="_on_cabo_pressed"]
+[connection signal="pressed" from="accions/Descartar" to="p1/ROBAR" method="_on_descartar_pressed"]
