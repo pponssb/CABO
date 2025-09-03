@@ -13,8 +13,10 @@ script = ExtResource("1_pd1fw")
 
 [node name="Bot_jugadors" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 528.0
+offset_top = 264.0
+offset_right = 568.0
+offset_bottom = 304.0
 
 [node name="Num_jug_txt" type="Label" parent="."]
 layout_mode = 0
@@ -28,5 +30,14 @@ offset_top = 472.0
 offset_right = 672.0
 offset_bottom = 544.0
 text = "COMENÇA"
+
+[node name="CABO" type="Label" parent="."]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 64.0
+offset_right = 927.0
+offset_bottom = 180.0
+theme_override_font_sizes/font_size = 85
+text = "CABO: THE GAME"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

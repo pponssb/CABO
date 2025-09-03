@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://wnxwtrhh28me"]
+[gd_scene load_steps=4 format=3 uid="uid://wnxwtrhh28me"]
 
 [ext_resource type="Script" uid="uid://dnd8jts2xhcq8" path="res://canviar_carta.gd" id="1_3g10i"]
 [ext_resource type="Texture2D" uid="uid://db4222k2gvj6f" path="res://Cards/CD.png" id="1_k3j2r"]
+[ext_resource type="Script" uid="uid://blrmdle7bbadq" path="res://seguent _torn.gd" id="3_4kduj"]
 
 [node name="Canviar carta" type="Node2D"]
 script = ExtResource("1_3g10i")
@@ -100,6 +101,22 @@ offset_right = -249.0
 offset_bottom = 32.0
 theme_override_font_sizes/font_size = 24
 text = "La carta ha estat canviada"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 296.0
+offset_top = -40.0
+offset_right = 480.0
+offset_bottom = 66.0
+text = "Següent torn"
+script = ExtResource("3_4kduj")
+
+[node name="CABO" type="Button" parent="."]
+offset_left = 280.0
+offset_top = -232.0
+offset_right = 493.0
+offset_bottom = -115.0
+theme_override_font_sizes/font_size = 34
+text = "CABO"
 
 [connection signal="pressed" from="C3" to="." method="_on_c_3_pressed"]
 [connection signal="pressed" from="C3" to="C3" method="_on_pressed"]
