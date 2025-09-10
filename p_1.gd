@@ -11,8 +11,10 @@ func _ready() -> void:
 
 func nom_jugadors(new_text: String) -> void:
 	label.text = "Hola " + new_text.to_upper()  +  "\n Fes clic a les cartes per revelar-les"
+	Global.jugadors.append(new_text.to_upper())
 	preg.queue_free()
 	input.queue_free()
+	print(Global.jugadors)
 	
 
 

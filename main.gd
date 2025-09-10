@@ -40,7 +40,11 @@ func _ready():
 	C2.card_value = p1_cards [1]
 	C3.card_value = p1_cards [2]
 	C4.card_value = p1_cards [3]
-	
+
+
+
+
+
 func readcard(carta,pos):
 	var r=carta[pos]
 	return r

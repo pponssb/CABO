@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cf15d3avd2g4f"]
+[gd_scene load_steps=12 format=3 uid="uid://cf15d3avd2g4f"]
 
 [ext_resource type="Texture2D" uid="uid://db4222k2gvj6f" path="res://Cards/CD.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://ckp2ipqufap4y" path="res://main.gd" id="1_h2yge"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://icsi1vgp8s5q" path="res://c_2.gd" id="7_kek77"]
 [ext_resource type="Script" uid="uid://qaieejpd4vgt" path="res://robar.gd" id="8_kek77"]
 [ext_resource type="Script" uid="uid://bbcxv3ok1o1t3" path="res://botons_accions.gd" id="10_4c57u"]
+[ext_resource type="Script" uid="uid://ba0rfnd7v6ceq" path="res://popup_panel.gd" id="11_efxa6"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(1, 0)
@@ -185,6 +186,21 @@ text = "Canviar carta"
 visible = false
 layout_mode = 2
 text = "Acció especial carta"
+
+[node name="PopupPanel" type="PopupPanel" parent="."]
+script = ExtResource("11_efxa6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupPanel"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 96.0
+offset_bottom = 96.0
+
+[node name="nom_jugador" type="Label" parent="PopupPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="close" type="Button" parent="PopupPanel/VBoxContainer"]
+layout_mode = 2
 
 [connection signal="pressed" from="p1/C3" to="p1/C3" method="_on_pressed"]
 [connection signal="pressed" from="p1/C4" to="p1/C4" method="_on_pressed"]
