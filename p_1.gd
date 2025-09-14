@@ -8,7 +8,6 @@ extends Node2D
 @onready var bot4: Button = $p1/C4
 func _ready() -> void:
 	input.text_submitted.connect(nom_jugadors)
-
 func nom_jugadors(new_text: String) -> void:
 	label.text = "Hola " + new_text.to_upper()  +  "\n Fes clic a les cartes per revelar-les"
 	Global.jugadors.append(new_text.to_upper())
@@ -16,11 +15,8 @@ func nom_jugadors(new_text: String) -> void:
 	input.queue_free()
 	print(Global.jugadors)
 	
-
-
 func _ready2():
 	girar_carta()
-
 func girar_carta() -> void:
 	bot1.pressed.connect(Callable(self, "_on_boto_pressed").bind(bot1))
 	bot2.pressed.connect(Callable(self, "_on_boto_pressed").bind(bot2))

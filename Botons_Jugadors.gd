@@ -17,7 +17,6 @@ func seleccionar_jugadors(num):
 	for boto in botons_container.get_children():
 		botons_container.remove_child(boto)
 		boto.queue_free()
-		
+
 func _on_button_pressed():
-	get_tree().change_scene_to_file("res://main.tscn")
-	
+	get_tree().change_scene_to_file("res://noms.tscn")
