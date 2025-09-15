@@ -1,19 +1,31 @@
 extends Node2D
-@onready var input: LineEdit = $LineEdit
-@onready var label: Label = $Label
-@onready var preg: Label = $Pregunta
-@onready var preg2 = $Pregunta2
-@onready var preg3 = $Pregunta3
-@onready var preg4 = $Pregunta4
-@onready var preg5 = $Pregunta5
-var jugadors = Global.num_jugadors_seleccionats
-func nom_jugadors(new_text: String) -> void:
-	if jugadors == 5:
-		preg.visibility_layer=true
-	label.text = "Hola " + new_text.to_upper()  +  "\n Benvingut a la partida"
-	Global.jugadors.append(new_text.to_upper())
-	preg.queue_free()
-	input.queue_free()
-	print(Global.jugadors)
-"func _ready() -> void:
-	input.text_submitted.connect(nom_jugadors)"
+@onready var preg_labels = [$Pregunta, $Pregunta2, $Pregunta3, $Pregunta4, $Pregunta5]
+@onready var benvinguda = $Benvinguda
+@onready var line_edits = [$Pregunta/LineEdit, $Pregunta2/LineEdit2, $Pregunta3/LineEdit3, $Pregunta4/LineEdit4, $Pregunta5/LineEdit5]
+var jugadors_registrats = 0
+
+func _ready() -> void:
+	for i in range(5):
+		preg_labels[i].hide()
+
+	var num_jugadors = Global.num_jugadors_seleccionats
+	for i in range(num_jugadors):
+		preg_labels[i].show()
+		line_edits[i].text_submitted.connect(nom_registrat)
+
+	benvinguda.hide()
+
+func nom_registrat(text: String) -> void:
+	Global.jugadors.append(text.to_upper())
+	line_edits[jugadors_registrats].hide()
+	preg_labels[jugadors_registrats].hide()
+	jugadors_registrats += 1
+
+	if jugadors_registrats >= Global.num_jugadors_seleccionats:
+		var noms_unio = ", ".join(Global.jugadors)
+		var text_benvinguda = "BENVINGUTS A LA PARTIDA!\n"
+		text_benvinguda += noms_unio
+	
+		benvinguda.text = text_benvinguda
+		benvinguda.show()
+		print(Global.jugadors)

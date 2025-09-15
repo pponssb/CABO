@@ -2,7 +2,7 @@ extends Control
 
 @onready var botons_container = $Bot_jugadors
 @onready var njt = $Num_jug_txt
-
+	
 func _ready():
 	for i in range(2, 6):
 		var boto = Button.new()
