@@ -1,0 +1,151 @@
+[gd_scene load_steps=8 format=3 uid="uid://cusouh13wfgwm"]
+
+[ext_resource type="Script" uid="uid://dvn0xan02s6vi" path="res://p_1.gd" id="1_oy6l1"]
+[ext_resource type="Texture2D" uid="uid://db4222k2gvj6f" path="res://Cards/CD.png" id="2_4v0gg"]
+[ext_resource type="Script" uid="uid://c7wnxwpylbdwu" path="res://c_3.gd" id="3_hkqgo"]
+[ext_resource type="Script" uid="uid://dndcytxupvisf" path="res://c_4.gd" id="4_obs2y"]
+[ext_resource type="Script" uid="uid://cfs6qiobwj8vt" path="res://c_1.gd" id="5_qnv13"]
+[ext_resource type="Script" uid="uid://icsi1vgp8s5q" path="res://c_2.gd" id="6_jqt64"]
+[ext_resource type="Script" uid="uid://qaieejpd4vgt" path="res://robar.gd" id="7_u1phq"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="p1" type="Node2D" parent="."]
+
+[node name="p1" type="Node2D" parent="p1"]
+script = ExtResource("1_oy6l1")
+
+[node name="C3" type="Button" parent="p1/p1"]
+top_level = true
+offset_left = 272.0
+offset_top = 131.0
+offset_right = 392.0
+offset_bottom = 298.0
+icon = ExtResource("2_4v0gg")
+expand_icon = true
+script = ExtResource("3_hkqgo")
+metadata/_edit_use_anchors_ = true
+
+[node name="C4" type="Button" parent="p1/p1"]
+top_level = true
+offset_left = 400.0
+offset_top = 131.0
+offset_right = 520.0
+offset_bottom = 298.0
+icon = ExtResource("2_4v0gg")
+expand_icon = true
+script = ExtResource("4_obs2y")
+metadata/_edit_use_anchors_ = true
+
+[node name="C1" type="Button" parent="p1/p1"]
+top_level = true
+offset_left = 272.0
+offset_top = -41.0
+offset_right = 392.0
+offset_bottom = 126.0
+icon = ExtResource("2_4v0gg")
+expand_icon = true
+script = ExtResource("5_qnv13")
+metadata/_edit_use_anchors_ = true
+
+[node name="C2" type="Button" parent="p1/p1"]
+top_level = true
+offset_left = 400.0
+offset_top = -41.0
+offset_right = 520.0
+offset_bottom = 126.0
+icon = ExtResource("2_4v0gg")
+expand_icon = true
+script = ExtResource("6_jqt64")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="p1/p1"]
+offset_left = 276.0
+offset_top = -120.0
+offset_right = 524.0
+offset_bottom = -56.0
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LineEdit" type="LineEdit" parent="p1/p1"]
+offset_left = 324.0
+offset_top = -144.0
+offset_right = 492.0
+offset_bottom = -81.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Pregunta" type="Label" parent="p1/p1"]
+offset_left = 295.0
+offset_top = -192.0
+offset_right = 514.0
+offset_bottom = -128.0
+text = "Escriu el nom que utilitzaràs"
+
+[node name="DESCARTS" type="Button" parent="p1/p1"]
+top_level = true
+anchors_preset = -1
+anchor_left = -0.222222
+anchor_top = -0.121914
+anchor_right = -0.130208
+anchor_bottom = 0.106481
+offset_left = -280.0
+offset_top = 47.0003
+offset_right = -160.0
+offset_bottom = 214.0
+rotation = -1.57079
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="DESCARTS_txt" type="Label" parent="p1/p1/DESCARTS"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0707965
+anchor_right = -0.0707965
+offset_left = 264.0
+offset_top = 84.9994
+offset_right = 406.0
+offset_bottom = 132.999
+rotation = 1.57079
+text = "PILA DE DESCARTS"
+metadata/_edit_use_anchors_ = true
+
+[node name="ROBAR" type="Button" parent="p1/p1"]
+top_level = true
+anchors_preset = -1
+anchor_left = -0.222222
+anchor_top = -0.591049
+anchor_right = -0.130208
+anchor_bottom = -0.362654
+offset_left = 104.0
+offset_top = 351.0
+offset_right = 224.0
+offset_bottom = 518.0
+rotation = -1.57079
+icon = ExtResource("2_4v0gg")
+expand_icon = true
+script = ExtResource("7_u1phq")
+metadata/_edit_use_anchors_ = true
+
+[node name="ROBAR_txt" type="Label" parent="p1/p1/ROBAR"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.82382
+anchor_top = -5.86826
+anchor_right = 1.82382
+anchor_bottom = -5.86826
+offset_left = -156.183
+offset_top = 1941.5
+offset_right = -14.1829
+offset_bottom = 1989.5
+rotation = 1.57079
+text = "PILA PER ROBAR"
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="pressed" from="p1/p1/C3" to="p1/p1/C3" method="_on_pressed"]
+[connection signal="pressed" from="p1/p1/C4" to="p1/p1/C4" method="_on_pressed"]
+[connection signal="pressed" from="p1/p1/C1" to="p1/p1/C1" method="_on_pressed"]
+[connection signal="pressed" from="p1/p1/C2" to="p1/p1/C2" method="_on_pressed"]
+[connection signal="pressed" from="p1/p1/DESCARTS" to="p1/p1/DESCARTS" method="_on_pressed"]
+[connection signal="pressed" from="p1/p1/ROBAR" to="p1/p1/ROBAR" method="_on_pressed"]

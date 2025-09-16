@@ -1,11 +1,9 @@
 extends PopupPanel
-@onready var nom_jugador = $"VBoxContainer/nom_jugador"
+@onready var nom_jugador = $"Window/VBoxContainer/nom_jugador"
 @onready var estat_torn = $UI/TurnStatusLabel
 func _ready():
 	change_estat(partida.PLAYER_TURN)
 #TORN
-
-
 enum partida {
 	IDLE,
 	PLAYER_TURN,

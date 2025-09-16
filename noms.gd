@@ -29,3 +29,7 @@ func nom_registrat(text: String) -> void:
 		benvinguda.text = text_benvinguda
 		benvinguda.show()
 		print(Global.jugadors)
+
+
+func on_a_jugar_pressed() -> void:
+	get_tree().change_scene_to_file("res://main.tscn")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqn86e3ked1fc"]
+[gd_scene load_steps=4 format=3 uid="uid://cqn86e3ked1fc"]
 
 [ext_resource type="Script" uid="uid://y2cd1d1sn1b6" path="res://noms.gd" id="1_4i1ke"]
+[ext_resource type="Theme" uid="uid://rirs7l8f7ywq" path="res://Buttons/right_arrow.tres" id="2_p6wcq"]
 
 [sub_resource type="SystemFont" id="SystemFont_4i1ke"]
 
@@ -25,6 +26,19 @@ offset_top = 64.0
 offset_right = 239.0
 offset_bottom = 136.0
 
+[node name="boto" type="Button" parent="Pregunta"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.301
+anchor_top = -1.292
+anchor_right = 0.301
+anchor_bottom = -1.292
+offset_left = 155.466
+offset_top = 162.688
+offset_right = 235.466
+offset_bottom = 210.688
+theme = ExtResource("2_p6wcq")
+
 [node name="Pregunta4" type="Label" parent="."]
 offset_left = 192.0
 offset_top = 312.0
@@ -39,6 +53,19 @@ offset_left = 95.0
 offset_top = 64.0
 offset_right = 239.0
 offset_bottom = 136.0
+
+[node name="boto4" type="Button" parent="Pregunta4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.301
+anchor_top = -1.292
+anchor_right = 0.301
+anchor_bottom = -1.292
+offset_left = 155.466
+offset_top = 162.688
+offset_right = 235.466
+offset_bottom = 210.688
+theme = ExtResource("2_p6wcq")
 
 [node name="Pregunta2" type="Label" parent="."]
 offset_left = 424.0
@@ -55,6 +82,19 @@ offset_top = 64.0
 offset_right = 239.0
 offset_bottom = 136.0
 
+[node name="boto2" type="Button" parent="Pregunta2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.301
+anchor_top = -1.292
+anchor_right = 0.301
+anchor_bottom = -1.292
+offset_left = 155.466
+offset_top = 162.688
+offset_right = 235.466
+offset_bottom = 210.688
+theme = ExtResource("2_p6wcq")
+
 [node name="Pregunta3" type="Label" parent="."]
 offset_left = 808.0
 offset_top = 120.0
@@ -69,6 +109,19 @@ offset_left = 95.0
 offset_top = 64.0
 offset_right = 239.0
 offset_bottom = 136.0
+
+[node name="boto3" type="Button" parent="Pregunta3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.301
+anchor_top = -1.292
+anchor_right = 0.301
+anchor_bottom = -1.292
+offset_left = 147.466
+offset_top = 162.688
+offset_right = 227.466
+offset_bottom = 210.688
+theme = ExtResource("2_p6wcq")
 
 [node name="Pregunta5" type="Label" parent="."]
 offset_left = 632.0
@@ -85,6 +138,19 @@ offset_top = 64.0
 offset_right = 239.0
 offset_bottom = 136.0
 
+[node name="boto5" type="Button" parent="Pregunta5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.301
+anchor_top = -1.292
+anchor_right = 0.301
+anchor_bottom = -1.292
+offset_left = 155.466
+offset_top = 162.688
+offset_right = 235.466
+offset_bottom = 210.688
+theme = ExtResource("2_p6wcq")
+
 [node name="Benvinguda" type="RichTextLabel" parent="."]
 offset_left = 16.0
 offset_top = 464.0
@@ -96,3 +162,12 @@ theme_override_font_sizes/bold_font_size = 20
 text = "Benvinguts a la partida"
 scroll_active = false
 horizontal_alignment = 1
+
+[node name="a_jugar" type="Button" parent="."]
+offset_left = 944.0
+offset_top = 528.0
+offset_right = 1103.0
+offset_bottom = 636.0
+text = "A JUGAR!"
+
+[connection signal="pressed" from="a_jugar" to="." method="on_a_jugar_pressed"]

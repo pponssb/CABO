@@ -187,6 +187,14 @@ visible = false
 layout_mode = 2
 text = "Acció especial carta"
 
+[node name="p2" type="Node2D" parent="."]
+
+[node name="p3" type="Node2D" parent="."]
+
+[node name="p4" type="Node2D" parent="."]
+
+[node name="p5" type="Node2D" parent="."]
+
 [node name="PopupPanel" type="PopupPanel" parent="."]
 script = ExtResource("11_efxa6")
 
