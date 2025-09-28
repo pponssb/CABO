@@ -40,6 +40,7 @@ func _ready():
 	C2.card_value = p1_cards [1]
 	C3.card_value = p1_cards [2]
 	C4.card_value = p1_cards [3]
+	change_estat(partida.PLAYER_TURN)
 
 
 
@@ -78,3 +79,69 @@ func recompte_punts():
 
 func _on_cabo_pressed() -> void:
 	recompte_punts()
+
+
+#---------------------------------------------------------------------------------------------------
+#codi torns
+@onready var nom_jugador = $"nom_jugador" # Corregida la ruta assumint VBoxContainer
+@onready var estat_torn = $"estat_torn"  # Corregida la ruta assumint que UI/TurnStatusLabel està a l'escena superior
+
+# TORN
+enum partida {
+	IDLE,
+	PLAYER_TURN,
+	END_TURN_PHASE
+}
+
+var nj = Global.num_jugadors_seleccionats
+var jugador_actual = 0
+var estat_actual = partida.IDLE
+
+
+
+
+func change_estat(nou_estat):
+	estat_actual = nou_estat
+	match estat_actual:
+		partida.PLAYER_TURN:
+			començar_torn_jugador() 
+		partida.END_TURN_PHASE:
+			fi_torn()
+
+
+func començar_torn_jugador():
+	var nom_jug_actual = Global.jugadors[jugador_actual]
+	nom_jugador.text= "Torn de" + nom_jug_actual + "\n Fes clic a les cartes per revelar-les"
+
+
+# -----------------------------------------------------------------------------
+# Lògica del Torn
+# -----------------------------------------------------------------------------
+
+func fi_torn():
+	
+	# Si 'estat_torn' es carrega correctament, es pot utilitzar
+	if is_instance_valid(estat_torn):
+		estat_torn.text = "Torn acabat. Espera..."
+	
+	# Amaga les cartes del jugador anterior
+	# hide_cards_for_player(current_player_index)
+	
+	# Passa al següent jugador de la llista
+	jugador_actual += 1
+	if jugador_actual >= Global.jugadors.size():
+		jugador_actual = 0 # Torna al primer jugador
+	
+	# Espera un moment per a un efecte visual, si es vol
+	await get_tree().create_timer(1.0).timeout
+	
+	# Comença el torn del nou jugador
+	change_estat(partida.PLAYER_TURN)
+
+
+func _on_fi_torn_pressed() -> void:
+	# Si el joc està en l'estat de torn de jugador, permet que acabi el torn
+	if estat_actual == partida.PLAYER_TURN:
+		change_estat(partida.END_TURN_PHASE)
+	else:
+		print("No és el torn del jugador actual per acabar.")

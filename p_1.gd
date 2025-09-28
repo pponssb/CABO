@@ -1,19 +1,8 @@
 extends Node2D
-@onready var input: LineEdit = $LineEdit
-@onready var label: Label = $Label
-@onready var preg: Label = $Pregunta
 @onready var bot1: Button = $p1/C1
 @onready var bot2: Button = $p1/C2
 @onready var bot3: Button = $p1/C3
 @onready var bot4: Button = $p1/C4
-func _ready() -> void:
-	input.text_submitted.connect(nom_jugadors)
-func nom_jugadors(new_text: String) -> void:
-	label.text = "Hola " + new_text.to_upper()  +  "\n Fes clic a les cartes per revelar-les"
-	Global.jugadors.append(new_text.to_upper())
-	preg.queue_free()
-	input.queue_free()
-	print(Global.jugadors)
 	
 func _ready2():
 	girar_carta()

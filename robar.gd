@@ -9,6 +9,7 @@ var current_deck = full_deck.duplicate()
 @onready var descartar_bt = $"../../accions/Descartar"
 @onready var Accio_bt = $"../../accions/Accio"
 @onready var canv_ct_bt = $"../../accions/Canviar_carta"
+@onready var setvuit_label = $"7o8"
 var descarts =[]
 
 
@@ -19,12 +20,10 @@ func carta_nova():
 	dc.texture_normal = load(carta_agafada)
 	print(card)
 	return card
-	
-
-
 
 func _on_pressed():
 	var carta_nova_resultat = carta_nova()
+	Global.carta_actual=[carta_nova_resultat]
 	accions_bt.visible = true
 
 	if carta_nova_resultat[0] == "7" or carta_nova_resultat[0] == "8":
@@ -45,6 +44,18 @@ func _on_canviar_carta_pressed() -> void:
 	Accio_bt.visible = false
 	get_tree().change_scene_to_file("res://canviar_carta.tscn")
 	
+func readcard(carta,pos):
+	var r=carta[pos]
+	return r
 
 func _on_accio_pressed() -> void:
-	Accio_bt.visible = false
+	accions_bt.visible = false
+	
+	var carta_nova_resultat = Global.carta_actual[0]
+	print(carta_nova_resultat[0])
+	if carta_nova_resultat[0] == "7" or carta_nova_resultat[0] == "8":
+		if is_instance_valid(setvuit_label):
+			setvuit_label.text = "Pots revelar una de les teves cartes"
+		else:
+			print("ERROR: El botó de carta no té una textura assignada.")
+	Global.carta_actual.clear()
