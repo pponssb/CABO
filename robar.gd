@@ -9,7 +9,7 @@ var current_deck = full_deck.duplicate()
 @onready var descartar_bt = $"../../accions/Descartar"
 @onready var Accio_bt = $"../../accions/Accio"
 @onready var canv_ct_bt = $"../../accions/Canviar_carta"
-@onready var setvuit_label = $"7o8"
+@onready var setvuit_label = get_node("/root/Main/setvuit_label")
 var descarts =[]
 
 
@@ -34,28 +34,32 @@ func _on_pressed():
 		Accio_bt.visible = true
 	elif carta_nova_resultat[0] == "K":
 		Accio_bt.visible = true
+	else:
+		Accio_bt.visible = false
 
 func _on_descartar_pressed() -> void:
 	Accio_bt.visible = false
 	var descarts_bt = $"../DESCARTS"
 	descarts_bt.icon = dc.texture_normal
 	dc.texture_normal = $"res://Cards/CD.png"
+	Global.carta_actual.clear()
 func _on_canviar_carta_pressed() -> void:
 	Accio_bt.visible = false
 	get_tree().change_scene_to_file("res://canviar_carta.tscn")
+	Global.carta_actual.clear()
 	
 func readcard(carta,pos):
 	var r=carta[pos]
 	return r
-
-func _on_accio_pressed() -> void:
-	accions_bt.visible = false
 	
+func _on_accio_pressed():
+	accions_bt.visible = false
 	var carta_nova_resultat = Global.carta_actual[0]
 	print(carta_nova_resultat[0])
 	if carta_nova_resultat[0] == "7" or carta_nova_resultat[0] == "8":
-		if is_instance_valid(setvuit_label):
-			setvuit_label.text = "Pots revelar una de les teves cartes"
-		else:
-			print("ERROR: El botó de carta no té una textura assignada.")
+		setvuit_label.text = "Pots revelar una de les teves cartes"
+	if carta_nova_resultat[0] == "9" or carta_nova_resultat[0] == "10":
+		get_tree().change_scene_to_file("res://carta_rival.tscn")
+	if carta_nova_resultat[0] == "J" or carta_nova_resultat[0] == "Q":
+		pass
 	Global.carta_actual.clear()

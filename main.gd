@@ -94,7 +94,7 @@ enum partida {
 }
 
 var nj = Global.num_jugadors_seleccionats
-var jugador_actual = 0
+
 var estat_actual = partida.IDLE
 
 
@@ -110,8 +110,8 @@ func change_estat(nou_estat):
 
 
 func començar_torn_jugador():
-	var nom_jug_actual = Global.jugadors[jugador_actual]
-	nom_jugador.text= "Torn de" + nom_jug_actual + "\n Fes clic a les cartes per revelar-les"
+	var nom_jug_actual = Global.jugadors[Global.jugador_actual]
+	nom_jugador.text= "Torn de " + nom_jug_actual + "\n Fes clic a dues cartes per revelar-les"
 
 
 # -----------------------------------------------------------------------------
@@ -128,9 +128,9 @@ func fi_torn():
 	# hide_cards_for_player(current_player_index)
 	
 	# Passa al següent jugador de la llista
-	jugador_actual += 1
-	if jugador_actual >= Global.jugadors.size():
-		jugador_actual = 0 # Torna al primer jugador
+	Global.jugador_actual += 1
+	if Global.jugador_actual >= Global.jugadors.size():
+		Global.jugador_actual = 0 # Torna al primer jugador
 	
 	# Espera un moment per a un efecte visual, si es vol
 	await get_tree().create_timer(1.0).timeout

@@ -15,6 +15,13 @@
 position = Vector2(1, 0)
 script = ExtResource("1_h2yge")
 
+[node name="setvuit_label" type="Label" parent="."]
+offset_left = 303.0
+offset_top = -104.0
+offset_right = 501.0
+offset_bottom = -44.0
+text = "HOLAAAAA"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="p1" type="Node2D" parent="."]
@@ -197,18 +204,12 @@ offset_bottom = -187.0
 theme_override_font_sizes/font_size = 34
 text = "FI TORN"
 
-[node name="7o8" type="Label" parent="."]
-visible = false
-offset_left = 279.0
-offset_top = -120.0
-offset_right = 489.0
-offset_bottom = -58.0
-
 [connection signal="pressed" from="p1/C3" to="p1/C3" method="_on_pressed"]
 [connection signal="pressed" from="p1/C4" to="p1/C4" method="_on_pressed"]
 [connection signal="pressed" from="p1/C1" to="p1/C1" method="_on_pressed"]
 [connection signal="pressed" from="p1/C2" to="p1/C2" method="_on_pressed"]
 [connection signal="pressed" from="p1/DESCARTS" to="p1/DESCARTS" method="_on_pressed"]
+[connection signal="pressed" from="p1/ROBAR" to="p1/C4" method="_on_robar_pressed"]
 [connection signal="pressed" from="p1/ROBAR" to="p1/ROBAR" method="_on_pressed"]
 [connection signal="pressed" from="CABO" to="." method="_on_cabo_pressed"]
 [connection signal="pressed" from="accions/Descartar" to="p1/ROBAR" method="_on_descartar_pressed"]

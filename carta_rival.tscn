@@ -1,0 +1,82 @@
+[gd_scene load_steps=3 format=3 uid="uid://dubseifa6ckuo"]
+
+[ext_resource type="Script" uid="uid://c2pyh3pw16wk2" path="res://carta_rival.gd" id="1_7ri31"]
+[ext_resource type="Texture2D" uid="uid://db4222k2gvj6f" path="res://Cards/CD.png" id="2_t533p"]
+
+[node name="Carta_rival" type="Node2D"]
+script = ExtResource("1_7ri31")
+
+[node name="C1" type="Button" parent="."]
+visible = false
+top_level = true
+anchors_preset = -1
+anchor_left = -0.0729167
+anchor_top = -0.180556
+offset_left = -124.0
+offset_top = -139.0
+offset_right = -4.0
+offset_bottom = 28.0
+icon = ExtResource("2_t533p")
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="C2" type="Button" parent="."]
+visible = false
+top_level = true
+anchors_preset = -1
+anchor_top = -0.180556
+anchor_right = 0.0729167
+offset_left = 4.0
+offset_top = -139.0
+offset_right = 124.0
+offset_bottom = 28.0
+icon = ExtResource("2_t533p")
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="C3" type="Button" parent="."]
+visible = false
+top_level = true
+anchors_preset = -1
+anchor_left = -0.0729167
+anchor_bottom = 0.180556
+offset_left = -124.0
+offset_top = 33.0
+offset_right = -4.0
+offset_bottom = 200.0
+icon = ExtResource("2_t533p")
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="C4" type="Button" parent="."]
+visible = false
+top_level = true
+anchors_preset = -1
+anchor_right = 0.0729167
+anchor_bottom = 0.180556
+offset_left = 4.0
+offset_top = 33.0
+offset_right = 124.0
+offset_bottom = 200.0
+icon = ExtResource("2_t533p")
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -520.0
+offset_top = -56.0
+offset_right = -280.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 25
+text = "Tria el rival 
+del qual vols 
+revelar la carta"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = -26.0909
+offset_top = -0.636353
+offset_right = 13.9091
+offset_bottom = 39.3636
