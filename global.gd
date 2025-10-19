@@ -1,7 +1,7 @@
 extends Node
-var num_jugadors_seleccionats = 4
+var num_jugadors_seleccionats = 3
 var boto = Button.new()
-var jugadors = ["ZOE","PAU","NIGGER","BOLA"]
+var jugadors = ["PAU","KOUNDÉ","DEMBOLÉ"]
 var jugador_actual = 0
 var carta_actual = []
 var cartes_girades = []
