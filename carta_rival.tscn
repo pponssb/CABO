@@ -6,6 +6,25 @@
 [node name="Carta_rival" type="Node2D"]
 script = ExtResource("1_7ri31")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -520.0
+offset_top = -56.0
+offset_right = -280.0
+offset_bottom = 82.0
+theme_override_font_sizes/font_size = 25
+text = "Tria el rival 
+del qual vols 
+revelar la carta"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = -26.0909
+offset_top = -0.636353
+offset_right = 13.9091
+offset_bottom = 39.3636
+
 [node name="C1" type="Button" parent="."]
 visible = false
 top_level = true
@@ -61,22 +80,3 @@ offset_bottom = 200.0
 icon = ExtResource("2_t533p")
 expand_icon = true
 metadata/_edit_use_anchors_ = true
-
-[node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="Label" type="Label" parent="."]
-offset_left = -520.0
-offset_top = -56.0
-offset_right = -280.0
-offset_bottom = 82.0
-theme_override_font_sizes/font_size = 25
-text = "Tria el rival 
-del qual vols 
-revelar la carta"
-horizontal_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_left = -26.0909
-offset_top = -0.636353
-offset_right = 13.9091
-offset_bottom = 39.3636

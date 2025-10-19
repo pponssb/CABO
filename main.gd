@@ -1,9 +1,4 @@
 extends Node2D
-var p1_cards = []
-var p2_cards = []
-var p3_cards = []
-var p4_cards = []
-var p5_cards = []
 var full_deck = ["1C", "2C", "3C", "4C", "5C", "6C", "7C", "8C", "9C", "10C", "JC", "QC", "KC",
 "1P", "2P", "3P", "4P", "5P", "6P", "7P", "8P", "9P", "10P", "JP", "QP", "KP",
 "1T", "2T", "3T", "4T", "5T", "6T", "7T", "8T", "9T", "10T", "JT", "QT", "KT",
@@ -19,16 +14,22 @@ var current_deck = []
 @onready var num_jugadors = $"res://Botons_Jugadors.gd"
 
 
-func deal_cards(): #posa les 4 cartes a cada jugador
-	current_deck=full_deck.duplicate()
-	for i in range (4):
-		p1_cards.append(carta_nova())
-		p2_cards.append(carta_nova())
-		p3_cards.append(carta_nova())
-		p4_cards.append(carta_nova())
-		p5_cards.append(carta_nova())
-	print (p1_cards)
-	print (p2_cards)
+func deal_cards(): # posa les 4 cartes a cada jugador
+	current_deck = full_deck.duplicate()
+	for i in range(Global.num_jugadors_seleccionats):
+		var cartes_jugador = Global.get("p%d_cards" % (i + 1))
+		if cartes_jugador == null:
+			push_error("No s'ha trobat la llista p%d_cards a Global." % (i + 1))
+			continue
+		for j in range(4):
+			cartes_jugador.append(carta_nova())
+	for i in range(Global.num_jugadors_seleccionats):
+		var key = "p%d_cards" % (i + 1)
+		var cartes = Global.get(key)
+		var nom_jugador = Global.jugadors[i]
+		if cartes != null:
+			print("%s: %s" % [nom_jugador, str(cartes)])
+
 	
 func carta_nova():
 	var card = current_deck[randi()%current_deck.size()] # divideix un nombre a l'atzar entre el nombre de cartes que hi ha a current_deck i agafa el residu
@@ -36,10 +37,10 @@ func carta_nova():
 	return card
 func _ready():
 	deal_cards()
-	C1.card_value = p1_cards [0]
-	C2.card_value = p1_cards [1]
-	C3.card_value = p1_cards [2]
-	C4.card_value = p1_cards [3]
+	C1.card_value = Global.p1_cards [0]
+	C2.card_value = Global.p1_cards [1]
+	C3.card_value = Global.p1_cards [2]
+	C4.card_value = Global.p1_cards [3]
 	change_estat(partida.PLAYER_TURN)
 
 
@@ -52,27 +53,26 @@ func readcard(carta,pos):
 
 
 func recompte_punts():
-	var player_cards = [p1_cards, p2_cards, p3_cards, p4_cards, p5_cards]
 	var suma=[]
 	var nj = Global.num_jugadors_seleccionats
 	for j in range(0,nj):
 		var valor=[]
 		for i in range(0,4):
-			if readcard(player_cards[j][i],0)=="J":
+			if readcard(Global.player_cards[j][i],0)=="J":
 				valor.append(10)
-			elif readcard(player_cards[j][i],0)=="Q":
+			elif readcard(Global.player_cards[j][i],0)=="Q":
 				valor.append(11)
-			elif readcard(player_cards[j][i],0)=="K":
+			elif readcard(Global.player_cards[j][i],0)=="K":
 				valor.append(0)
-			elif readcard(player_cards[j][i],0)=="L":
+			elif readcard(Global.player_cards[j][i],0)=="L":
 				valor.append(-1)
-			elif readcard(player_cards[j][i],0)=="1":
-				if readcard(player_cards[j][i],1)=="0":
+			elif readcard(Global.player_cards[j][i],0)=="1":
+				if readcard(Global.player_cards[j][i],1)=="0":
 					valor.append(10)
 				else:
 					valor.append(1)
 			else:
-				valor.append(int(readcard(player_cards[j][i],0)))
+				valor.append(int(readcard(Global.player_cards[j][i],0)))
 		var suma_jugador = valor[0] + valor[1] + valor[2] + valor[3]
 		suma.append(suma_jugador)
 	print (suma)
