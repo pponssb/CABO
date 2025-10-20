@@ -37,12 +37,12 @@ func carta_nova():
 	return card
 func _ready():
 	deal_cards()
-	C1.card_value = Global.p1_cards [0]
-	C2.card_value = Global.p1_cards [1]
-	C3.card_value = Global.p1_cards [2]
-	C4.card_value = Global.p1_cards [3]
+	print(Global.p1_cards)
+	C1.card_value = Global.p1_cards[0]
+	C2.card_value = Global.p1_cards[1]
+	C3.card_value = Global.p1_cards[2]
+	C4.card_value = Global.p1_cards[3]
 	change_estat(partida.PLAYER_TURN)
-
 
 
 
@@ -53,7 +53,6 @@ func readcard(carta,pos):
 
 
 func recompte_punts():
-	var suma=[]
 	var nj = Global.num_jugadors_seleccionats
 	for j in range(0,nj):
 		var valor=[]
@@ -61,7 +60,7 @@ func recompte_punts():
 			if readcard(Global.player_cards[j][i],0)=="J":
 				valor.append(10)
 			elif readcard(Global.player_cards[j][i],0)=="Q":
-				valor.append(11)
+				valor.append(11)	
 			elif readcard(Global.player_cards[j][i],0)=="K":
 				valor.append(0)
 			elif readcard(Global.player_cards[j][i],0)=="L":
@@ -74,11 +73,13 @@ func recompte_punts():
 			else:
 				valor.append(int(readcard(Global.player_cards[j][i],0)))
 		var suma_jugador = valor[0] + valor[1] + valor[2] + valor[3]
-		suma.append(suma_jugador)
-	print (suma)
-
+		var nom = Global.jugadors[j]
+		Global.puntuacions_dict[nom] = suma_jugador
+	print(Global.puntuacions_dict)
+	
 func _on_cabo_pressed() -> void:
 	recompte_punts()
+	get_tree().change_scene_to_file("res://final.tscn")
 
 
 #---------------------------------------------------------------------------------------------------
@@ -108,10 +109,19 @@ func change_estat(nou_estat):
 		partida.END_TURN_PHASE:
 			fi_torn()
 
-
+@onready var dc = $"drawn_card"
 func començar_torn_jugador():
 	var nom_jug_actual = Global.jugadors[Global.jugador_actual]
 	nom_jugador.text= "Torn de " + nom_jug_actual + "\n Fes clic a dues cartes per revelar-les"
+var textura_detectada = false
+
+func _process(delta):
+	if not textura_detectada and dc.texture_normal != null:
+		nom_jugador.visible = false
+		textura_detectada = true 
+	var textura = dc.texture_normal
+	if textura!=null:
+		nom_jugador.visible=false
 
 
 # -----------------------------------------------------------------------------

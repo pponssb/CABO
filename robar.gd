@@ -57,7 +57,7 @@ func _on_accio_pressed():
 	var carta_nova_resultat = Global.carta_actual[0]
 	print(carta_nova_resultat[0])
 	if carta_nova_resultat[0] == "7" or carta_nova_resultat[0] == "8":
-		setvuit_label.text = "Pots revelar una de les teves cartes"
+		setvuit_label.text = "Pots revelar" + "\n" + "una de les teves cartes"
 	if carta_nova_resultat[0] == "9" or carta_nova_resultat[0] == "10":
 		get_tree().change_scene_to_file("res://carta_rival.tscn")
 	if carta_nova_resultat[0] == "J" or carta_nova_resultat[0] == "Q":

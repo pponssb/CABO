@@ -20,9 +20,9 @@ func _on_pressed() -> void:
 		girar()  # Permet girar-la cara avall
 		return
 
-	if Global.cartes_girades.size() < 2:
+	if Global.cartes_girades.size() < 10: # hauria d'aanr un 2 aqui
 		girar()  # Girar cara amunt
 		Global.cartes_girades.append(self)
 
 func _on_robar_pressed() -> void:
-	Global.bloqueig_total==true
+	pass #(Global.bloqueig_total==true //// print("⚠️ Només pots girar dues cartes alhora."))

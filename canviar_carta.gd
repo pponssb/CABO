@@ -9,7 +9,6 @@ extends Node2D
 
 func _ready():
 	msg.visibility_layer=false
-
 func _on_c_1_pressed() -> void:
 	ins.visibility_layer = false
 	C1.visibility_layer=false
@@ -18,7 +17,7 @@ func _on_c_1_pressed() -> void:
 	await get_tree().create_timer(1.0).timeout
 	C1.visibility_layer=true
 	msg.visibility_layer=true
-
+	
 func _on_c_2_pressed() -> void:
 	ins.visibility_layer = false
 	C2.visibility_layer=false

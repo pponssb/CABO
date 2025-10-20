@@ -16,11 +16,13 @@ position = Vector2(1, 0)
 script = ExtResource("1_h2yge")
 
 [node name="setvuit_label" type="Label" parent="."]
-offset_left = 303.0
+offset_left = 295.0
 offset_top = -104.0
-offset_right = 501.0
+offset_right = 493.0
 offset_bottom = -44.0
-text = "HOLAAAAA"
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -191,10 +193,10 @@ anchor_left = -1.14971
 anchor_top = 3.97352
 anchor_right = -1.14971
 anchor_bottom = 3.97352
-offset_left = 263.0
-offset_top = -184.0
-offset_right = 492.0
-offset_bottom = -120.0
+offset_left = 281.0
+offset_top = -112.0
+offset_right = 510.0
+offset_bottom = -48.0
 
 [node name="fi_torn" type="Button" parent="."]
 offset_left = 399.0
